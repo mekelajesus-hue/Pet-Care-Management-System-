@@ -4,12 +4,11 @@ from pet_care_system import PetCareSystem
 
 
 class PetCareApp:
-    """Console application. Four useful methods for the group assignment."""
+    """Console application for the Pet Care Management System."""
 
     def __init__(self):
         self.system = PetCareSystem()
 
-    # Method 1
     def register_pet(self):
         name = input("Pet name: ").strip()
         if not name:
@@ -25,7 +24,6 @@ class PetCareApp:
             print("Please enter the age as a whole number.")
             return
 
-        # Ask for the specific object type.
         pet_type = input("Type (dog/cat): ").strip().lower()
         vaccination = input("Vaccination status: ").strip() or "Unknown"
         notes = input("Medical notes: ").strip() or "None"
@@ -41,25 +39,24 @@ class PetCareApp:
         self.system.register_pet(pet)
         print(f"{name} was registered successfully.")
 
-    # Method 2
     def show_all_pets(self):
         self.system.display_all_pets()
 
-    # Method 3
     def find_pet(self):
         name = input("Enter the pet name to search for: ").strip()
         pet = self.system.search_pet(name)
+
         if pet:
             print(pet.display_info())
             print("Sound:", pet.make_sound())
         else:
             print("Pet not found.")
 
-    # Method 4
     def show_statistics(self):
         print("Total registered pets:", self.system.count_pets())
         print("Average pet age:", round(self.system.average_age(), 2))
-        def compare_pets(self):
+
+    def compare_pets(self):
         first_name = input("Enter the first pet's name: ").strip()
         second_name = input("Enter the second pet's name: ").strip()
 
@@ -81,13 +78,13 @@ class PetCareApp:
         while True:
             print("\n=== PET CARE MANAGEMENT SYSTEM ===")
             print("1. Register a pet")
-print("2. Display all pets")
-print("3. Search for a pet")
-print("4. Show statistics")
-print("5. Compare two pets by age")
-print("6. Exit")
+            print("2. Display all pets")
+            print("3. Search for a pet")
+            print("4. Show statistics")
+            print("5. Compare two pets by age")
+            print("6. Exit")
 
-            choice = input("Choose an option (1-5): ").strip()
+            choice = input("Choose an option (1-6): ").strip()
 
             if choice == "1":
                 self.register_pet()
@@ -98,10 +95,12 @@ print("6. Exit")
             elif choice == "4":
                 self.show_statistics()
             elif choice == "5":
+                self.compare_pets()
+            elif choice == "6":
                 print("Goodbye!")
                 break
             else:
-                print("Invalid choice. Please choose 1-5.")
+                print("Invalid choice. Please choose 1-6.")
 
 
 if __name__ == "__main__":
