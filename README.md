@@ -23,6 +23,3 @@ The Pet Care Management System registers dogs and cats, stores their health reco
 
 ## How to run
 Run `main.py` using Python 3. The program uses only Python's standard features and needs no extra packages.
-
-## Team
-Add all four group members' full names and student numbers to the assignment PDF before submission.
