@@ -7,7 +7,6 @@ class Pet:
     def __init__(self, name, age, vaccination_status="Unknown", medical_notes="None"):
         self.name = name
         self.age = age
-        # Composition: each Pet creates and owns its HealthRecord.
         self.health_record = HealthRecord(vaccination_status, medical_notes)
 
     def make_sound(self):
@@ -18,5 +17,11 @@ class Pet:
         return (
             f"Name: {self.name}\n"
             f"Age: {self.age}\n"
-            f"{self.health_record.display_record()}"
+            f"{self.health_record.display_record(detailed=True)}"
         )
+
+    def __gt__(self, other):
+        """Allow two pets to be compared by age using >."""
+        if not isinstance(other, Pet):
+            return NotImplemented
+        return self.age > other.age
