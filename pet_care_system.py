@@ -1,4 +1,7 @@
 from storage import PetStorage
+def describe_sound(animal):
+    """Demonstrate duck typing using any object with make_sound()."""
+    return animal.make_sound()
 
 
 class PetCareSystem:
