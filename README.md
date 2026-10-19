@@ -12,7 +12,9 @@ The system provides a graphical interface for users to perform the main operatio
 - **Inheritance:** Dog and Cat inherit common attributes and behaviour from Pet.
 - **Composition:** Each Pet creates and owns a HealthRecord.
 - **Aggregation:** PetCareSystem manages a collection of pet objects.
-- **Polymorphism:** Dog and Cat override make_sound(). Pet objects can also be compared using the overloaded greater-than operator. HealthRecord supports short and detailed displays through an optional argument.
+- **Polymorphism — Method overriding:** Dog and Cat implement `make_sound()` differently.
+- **Polymorphism — Operator overloading:** The `Pet` class implements `__gt__()` to compare pets by age using the `>` operator.
+- **Polymorphism — Duck typing:** The `describe_sound()` function accepts different objects that provide a `make_sound()` method without requiring a specific class.
 - **Exception handling:** Invalid input and file-related errors are handled to help prevent the application from stopping unexpectedly.
 - **Abstract Data Type:** A Python list stores and manages the collection of pets.
 
