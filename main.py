@@ -59,15 +59,33 @@ class PetCareApp:
     def show_statistics(self):
         print("Total registered pets:", self.system.count_pets())
         print("Average pet age:", round(self.system.average_age(), 2))
+        def compare_pets(self):
+        first_name = input("Enter the first pet's name: ").strip()
+        second_name = input("Enter the second pet's name: ").strip()
+
+        first_pet = self.system.search_pet(first_name)
+        second_pet = self.system.search_pet(second_name)
+
+        if first_pet is None or second_pet is None:
+            print("One or both pets could not be found.")
+            return
+
+        if first_pet > second_pet:
+            print(f"{first_pet.name} is older than {second_pet.name}.")
+        elif second_pet > first_pet:
+            print(f"{second_pet.name} is older than {first_pet.name}.")
+        else:
+            print("Both pets are the same age.")
 
     def run(self):
         while True:
             print("\n=== PET CARE MANAGEMENT SYSTEM ===")
             print("1. Register a pet")
-            print("2. Display all pets")
-            print("3. Search for a pet")
-            print("4. Show statistics")
-            print("5. Exit")
+print("2. Display all pets")
+print("3. Search for a pet")
+print("4. Show statistics")
+print("5. Compare two pets by age")
+print("6. Exit")
 
             choice = input("Choose an option (1-5): ").strip()
 
