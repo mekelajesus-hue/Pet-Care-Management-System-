@@ -1,11 +1,17 @@
+from storage import PetStorage
+
+
 class PetCareSystem:
-    """Manages pets. Aggregation: pets can exist independently of this system."""
+    """Manages pets, searching, statistics, and saved records."""
 
     def __init__(self):
         self.pets = []
+        self.storage = PetStorage()
+        self.load_pets()
 
     def register_pet(self, pet):
         self.pets.append(pet)
+        self.save_pets()
 
     def display_all_pets(self):
         if not self.pets:
@@ -14,7 +20,6 @@ class PetCareSystem:
 
         for pet in self.pets:
             print("\n" + pet.display_info())
-            # Polymorphism: the correct subclass method runs for each pet.
             print("Sound:", pet.make_sound())
 
     def search_pet(self, name):
@@ -30,3 +35,9 @@ class PetCareSystem:
         if not self.pets:
             return 0
         return sum(pet.age for pet in self.pets) / len(self.pets)
+
+    def save_pets(self):
+        return self.storage.save_pets(self.pets)
+
+    def load_pets(self):
+        self.pets = self.storage.load_pets()
